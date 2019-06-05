@@ -1,25 +1,29 @@
 var express = require('express');
+var axios = require('axios');
 var router = express.Router();
-const axios = require('axios')
 
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { weather: '' });
+	res.render('index', { weather: '' });
 });
 
+router.post('/',  (req, res) => {
+	let form = req.body.city
+	let url = `http://api.openweathermap.org/data/2.5/weather?q=${form}&appid=${process.env.MAP_ORG_API_KEY}`
 
-axios.post('https://flaviocopes.com/todos', {
-  todo: 'Buy the milk'
+	axios.post(url)
+	.then((body) => {
+		console.log(body)
+	})
+	.catch((error) => {
+		console.log(error)
+	})
+
+
 })
-.then((res) => {
-  console.log(`statusCode: ${res.statusCode}`)
-  console.log(res)
-})
-.catch((error) => {
-  console.error(error)
-})
+
 
 
 module.exports = router;
