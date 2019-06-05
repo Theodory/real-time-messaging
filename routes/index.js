@@ -16,11 +16,12 @@ router.post('/',  (req, res) => {
 	axios.post(url)
 	.then((body) => {
 		let data = JSON.parse(body)
-		let textMessage = `Here at ${data.} the temperature is ${}`
-		res.render('index',{weather: })
+		let textMessage = `Here at ${data.name} the temperature is ${data.main.temp}`
+		res.render('index',{weather: textMessage});
 	})
 	.catch((error) => {
-		console.log(error)
+		let textMessage = `Here at ${data.name} the temperature is ${data.main.temp}`
+		res.render('index',{error: 'Error occured!'});
 	})
 
 
