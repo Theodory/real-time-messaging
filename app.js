@@ -3,11 +3,10 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const dotenv = require('dotenv').config();
-const mysql = require('mysql');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const usersRouter = require('./routes/users');
+const database = require('./database/connection');
 
 const app = express();
 
