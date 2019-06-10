@@ -5,7 +5,7 @@ const logger = require('morgan');
 const dotenv = require('dotenv').config();
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/chatroom');
 const database = require('./database/connection');
 
 const app = express();
@@ -19,6 +19,6 @@ app.engine('.html', require('ejs').__express);
 app.set('view engine','html');
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/chatroom', usersRouter);
 
 module.exports = app;
