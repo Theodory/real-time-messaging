@@ -10,7 +10,5 @@ const connection = mysql.createConnection({
   port: process.env.DB_PORT,
 });
 
-console.log(process.env.DB_USER);
-
 connection.connect(
  );
