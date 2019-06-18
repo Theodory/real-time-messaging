@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/chatroom');
-const database = require('./database/connection');
+const connection = require('./database/connection');
 
 const app = express();
 
@@ -20,5 +20,6 @@ app.set('view engine','html');
 
 app.use('/', indexRouter);
 app.use('/chatroom', usersRouter);
+
 
 module.exports = app;
