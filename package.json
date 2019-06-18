@@ -19,5 +19,8 @@
     "request": "^2.88.0",
     "sequelize": "^5.8.10",
     "sequelize-cli": "^5.5.0"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0"
   }
 }
