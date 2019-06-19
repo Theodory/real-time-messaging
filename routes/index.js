@@ -1,16 +1,11 @@
-var express = require('express');
-var request = require('request');
-const weatherController = require('./controllers/weatherController')
-var router = express.Router();
+var router = require('express').Router();
+const weatherController = require('../controllers/weatherController');
 
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-	res.render('index', { weather: null, error: null });
-});
-
-router.post('/',  weatherController.index())
+router.get('/', weatherController.index);
+//router.post('/',  weatherController.index())
 
 
 
