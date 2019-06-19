@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('.html', require('ejs').__express);
 app.set('view engine','html');
 
-app.use('/', indexRouter);
+app.use('/', indexRouter);	
 app.use('/chatroom', usersRouter);
 
 
