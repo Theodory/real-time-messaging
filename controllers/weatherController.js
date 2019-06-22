@@ -20,15 +20,15 @@ exports.getWeather  =  (req, res) => {
 			request(url, async (err,response,body) => {
 				if(err){
 					let textMessage = `Error occured`
-					res.render('index',{weather: null,error: textMessage});
+					res.render('index',{weather: null,problem: textMessage});
 				}else{
 					let data = JSON.parse(body)
 					//console.log(data);
 					if(data.cod === '404'){
-					res.render('index',{weather: null,error: data.message});
+						res.render('index',{problem: data.message,weather: null});
 					}else{
 						let textMessage = `Here at ${data.name } weather is ${data.main.temp}`
-						res.render('index',{weather: textMessage,error: null});
+						res.render('index',{weather: textMessage,problem: null});
 					}
 				}
 
@@ -36,7 +36,7 @@ exports.getWeather  =  (req, res) => {
 		}
 		catch(error) {
 			let textMessage = `Error occured`
-			res.render('index',{weather: null,error: textMessage});
+			res.render('index',{problem: textMessage,weather: null});
 		}
 	})
 
