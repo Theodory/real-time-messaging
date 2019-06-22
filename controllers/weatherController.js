@@ -23,9 +23,10 @@ exports.getWeather  =  (req, res) => {
 					res.render('index',{weather: null,error: textMessage});
 				}else{
 					let data = JSON.parse(body)
-					if(data.main == undefined){
+					//console.log(data);
+					if(data.message && data.code == 404){
 						let textMessage = `Error occured`
-					res.render('index',{weather: null,error: 'Error occured'});
+					res.render('index',{weather: null,error: data.message});
 					}else{
 						let textMessage = `Here at ${data.name } weather is ${data.main.temp}`
 						res.render('index',{weather: textMessage,error: null});
