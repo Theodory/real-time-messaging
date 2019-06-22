@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator/check');
 
 exports.index  =  (req, res) => {
 	
-	res.render('index', { weather: null, error: null });
+	res.render('index', { weather: null, problem: null });
 
 }
 
