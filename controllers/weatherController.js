@@ -18,14 +18,26 @@ exports.getWeather  =  (req, res) => {
 
 		return new Promise((resolve,reject) => {
 
-				let data = JSON.parse(body)
+			if (err) {
+
+				reject()
+
+			} else {
+
+				resolve(() => {
+					let data = JSON.parse(body)
 				let textMessage = `Here at ${data.name } weather is ${data.main.temp}`
 				res.render('index',{weather: textMessage,error: null});
+				})
+			}
 			
 
-		}).catch(err=> {
-			console.log(err)
-		})
+		}).catch((error) => {
+
+				let textMessage = `Error occured`
+				res.render('index',{error: textMessage,weather: null});
+
+		});
 	})
 
 	
