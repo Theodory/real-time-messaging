@@ -24,8 +24,7 @@ exports.getWeather  =  (req, res) => {
 				}else{
 					let data = JSON.parse(body)
 					//console.log(data);
-					if(data.message && data.code == 404){
-						let textMessage = `Error occured`
+					if(data.cod === '404'){
 					res.render('index',{weather: null,error: data.message});
 					}else{
 						let textMessage = `Here at ${data.name } weather is ${data.main.temp}`
